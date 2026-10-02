@@ -1,0 +1,49 @@
+<svg viewBox="0 0 440 140" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="abGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#FFF2B2" />
+      <stop offset="25%" stopColor="#F5C75D" />
+      <stop offset="55%" stopColor="#E5A93C" />
+      <stop offset="85%" stopColor="#BF841C" />
+      <stop offset="100%" stopColor="#96610E" />
+    </linearGradient>
+    <linearGradient id="abSilverLeft" x1="100%" y1="50%" x2="0%" y2="50%">
+      <stop offset="0%" stopColor="#E5E7EB" />
+      <stop offset="40%" stopColor="#9CA3AF" />
+      <stop offset="70%" stopColor="#6B7280" />
+      <stop offset="100%" stopColor="#374151" />
+    </linearGradient>
+    <linearGradient id="abSilverRight" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" stopColor="#E5E7EB" />
+      <stop offset="40%" stopColor="#9CA3AF" />
+      <stop offset="70%" stopColor="#6B7280" />
+      <stop offset="100%" stopColor="#374151" />
+    </linearGradient>
+    <linearGradient id="shieldRim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stopColor="#4B5563" />
+      <stop offset="50%" stopColor="#1F2937" />
+      <stop offset="100%" stopColor="#111827" />
+    </linearGradient>
+  </defs>
+  <path d="M 50 70 C 50 25, 390 25, 390 70 C 390 115, 50 115, 50 70 Z" fill="#0B0D11" stroke="url(#shieldRim)" stroke-width="2"/>
+  <path d="M 65 70 C 65 35, 375 35, 375 70 C 375 105, 65 105, 65 70 Z" stroke="url(#abGoldGrad)" stroke-width="0.8" stroke-dasharray="4 2" opacity="0.6"/>
+  
+  <!-- Left Wing -->
+  <g fill="url(#abSilverLeft)" opacity="0.95">
+    <path d="M 180 50 C 145 42, 100 38, 70 42 C 95 50, 130 55, 175 56 Z" />
+    <path d="M 182 58 C 140 54, 90 54, 60 62 C 90 68, 135 70, 178 68 Z" />
+    <path d="M 180 70 C 142 69, 100 72, 75 82 C 105 84, 140 82, 175 78 Z" />
+    <path d="M 175 80 C 145 81, 115 88, 95 96 C 120 94, 150 88, 172 84 Z" />
+  </g>
+  
+  <!-- Right Wing -->
+  <g fill="url(#abSilverRight)" opacity="0.95">
+    <path d="M 260 50 C 295 42, 340 38, 370 42 C 345 50, 310 55, 265 56 Z" />
+    <path d="M 258 58 C 300 54, 350 54, 380 62 C 350 68, 305 70, 262 68 Z" />
+    <path d="M 260 70 C 298 69, 340 72, 365 82 C 335 84, 300 82, 265 78 Z" />
+    <path d="M 265 80 C 295 81, 325 88, 345 96 C 320 94, 290 88, 268 84 Z" />
+  </g>
+  
+  <text x="220" y="72" text-anchor="middle" fill="url(#abGoldGrad)" font-size="48" font-weight="900" font-family="sans-serif" letter-spacing="1.5">AB+</text>
+  <text x="220" y="102" text-anchor="middle" fill="#F3C05D" font-size="11.5" font-weight="700" font-family="sans-serif" letter-spacing="3.5">MOVERS AND PACKERS</text>
+</svg>

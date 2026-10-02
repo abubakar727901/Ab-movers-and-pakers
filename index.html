@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="AB+ Movers and Packers — professional moving, packing and relocation services across Dubai and UAE.">
+<title>AB+ Movers & Packers | Dubai & UAE</title>
+<link rel="icon" href="assets/logo.svg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="header">
+  <div class="container nav">
+    <a class="brand" href="#home"><img src="assets/logo.svg" alt="AB+ Movers"><span>AB+ <b>MOVERS</b></span></a>
+    <nav id="nav">
+      <a href="#home">Home</a><a href="#services">Services</a><a href="#plans">Pricing</a><a href="#calculator">Calculator</a><a href="#about">About</a><a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-actions"><a class="phone" href="tel:+971543017540">+971 54 301 7540</a><button class="btn small" onclick="scrollToQuote()">Get a Quote</button><button class="menu" onclick="toggleMenu()">☰</button></div>
+  </div>
+</header>
+
+<main id="home">
+<section class="hero">
+ <div class="hero-bg"></div><div class="container hero-grid">
+  <div>
+   <span class="eyebrow">24/7 MOVING & RELOCATION</span>
+   <h1>Professional <span>Movers & Packers</span> in Dubai & UAE</h1>
+   <p class="lead">Reliable home, villa and office relocation with professional packing, careful handling and transparent pricing.</p>
+   <div class="hero-actions"><button class="btn" onclick="scrollToQuote()">Get Free Quote</button><button class="btn outline" onclick="document.querySelector('#calculator').scrollIntoView({behavior:'smooth'})">Calculate Estimate</button></div>
+   <div class="trust"><span>✓ Trained Moving Team</span><span>✓ Safe Handling</span><span>✓ Transparent Pricing</span></div>
+  </div>
+  <div class="hero-card"><div class="hero-card-top">FAST RESPONSE GUARANTEE</div><h3>Plan your move with confidence.</h3><p>Tell us where you're moving from, where you're going and your preferred date.</p><button class="btn full" onclick="scrollToQuote()">Start Your Quote →</button><div class="contact-mini"><a href="https://wa.me/971543017540" target="_blank">WhatsApp</a><a href="tel:+971543017540">Call Muhammad Bilal</a></div></div>
+ </div>
+</section>
+
+<section class="section" id="move-types"><div class="container"><div class="section-head"><span class="eyebrow">LET'S GET YOU MOVING</span><h2>Choose Your <span>Move Type</span></h2><p>Select a service and start your free quote.</p></div><div class="cards four">
+<script>
+const moveTypes=[
+['Apartment Move','Fast and hassle-free apartment relocation with professional care and floor protection.','https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80'],
+['Villa Move','Complete villa moving service with safe handling, garden items and transport.','https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800&q=80'],
+['Office Relocation','Organized office moving solutions designed to minimize business disruption.','https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80'],
+['Furniture Move','Single items or complete sets, safely wrapped, padded and delivered.','https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&w=800&q=80']
+];
+document.write(moveTypes.map(x=>`<article class="image-card"><img src="${x[2]}" alt="${x[0]}" loading="lazy"><div><h3>${x[0]}</h3><p>${x[1]}</p><button class="text-btn" onclick="scrollToQuote('${x[0].replace('Office Relocation','Office Move')}')">Get Quote →</button></div></article>`).join(''));
+</script>
+</div></div></section>
+
+<section class="section dark" id="quote"><div class="container narrow"><div class="section-head"><span class="eyebrow">FAST RESPONSE GUARANTEE</span><h2>Get Your <span>Free Moving Quote</span></h2><p>Fill in the details below and we'll get back to you with an estimate.</p></div>
+<form id="quoteForm" class="panel form-grid">
+<label>First Name *<input name="firstName" required placeholder="e.g. Mohammed"></label>
+<label>Last Name *<input name="lastName" required placeholder="e.g. Ali"></label>
+<label>Mobile Number *<input name="mobile" required placeholder="e.g. 50 123 4567"></label>
+<label>Email *<input type="email" name="email" required placeholder="you@example.com"></label>
+<label>Move From *<select name="fromCity"></select></label><label>Move To *<select name="toCity"></select></label>
+<label class="span2">Pickup Address / Area *<input name="pickup" required placeholder="Building, street, apartment #"></label>
+<label class="span2">Drop-off Address / Area *<input name="dropoff" required placeholder="Building, street, apartment #"></label>
+<label>Move Type<select name="moveType" id="moveType"></select></label>
+<label>Preferred Date *<input type="date" name="date" required></label>
+<label>Preferred Time<select name="time"><option>Morning (8:00 AM - 12:00 PM)</option><option>Afternoon (12:00 PM - 4:00 PM)</option><option>Evening (4:00 PM - 8:00 PM)</option></select></label>
+<label>Property / Rooms<select name="rooms"><option>Studio</option><option>1 BHK</option><option>2 BHK</option><option>3 BHK</option><option>4+ BHK</option></select></label>
+<label class="span2">Additional Requirements<textarea name="notes" rows="3" placeholder="Anything else we should know?"></textarea></label>
+<button class="btn span2" type="submit">Submit Quote Request</button>
+</form></div></section>
+
+<section class="section" id="plans"><div class="container"><div class="section-head"><span class="eyebrow">MOVING PLANS</span><h2>Simple, Transparent <span>Pricing</span></h2><p>Starting prices for common moves. Final quote depends on your requirements.</p></div><div class="cards three" id="pricingCards"></div></div></section>
+
+<section class="section dark" id="calculator"><div class="container"><div class="section-head"><span class="eyebrow">INTERACTIVE MOVING QUOTE CALCULATOR</span><h2>Calculate Your <span>Moving Estimate</span></h2><p>Adjust your move parameters and get an immediate estimate in AED.</p></div>
+<div class="calculator panel"><div class="calc-controls">
+<label>Move Type<select id="calcType"><option>Apartment Move</option><option>Villa Move</option><option>Office Move</option><option>Furniture Move</option><option>Packing Only</option><option>Loading & Unloading</option><option>Storage</option></select></label>
+<label>Property Type<select id="property"><option>Studio</option><option>1 Bedroom</option><option>2 Bedroom</option><option>3 Bedroom</option><option>4+ Bedroom Villa</option><option>Commercial Office</option></select></label>
+<label>Floor <input id="floor" type="number" min="0" value="1"></label>
+<label>Distance (km) <input id="distance" type="number" min="1" value="15"></label>
+<label>Extra Boxes <input id="boxes" type="number" min="0" value="0"></label>
+<div class="checks"><label><input id="packing" type="checkbox"> Full packing</label><label><input id="assembly" type="checkbox"> Furniture assembly</label><label><input id="appliance" type="checkbox"> Appliance connection</label><label><input id="lift" type="checkbox" checked> Lift available</label></div>
+</div><div class="estimate"><small>ESTIMATED TOTAL</small><strong id="total">AED 1,100</strong><p>Includes an estimated 5% VAT. This is an indicative estimate, not a final quotation.</p><button class="btn full" onclick="bookEstimate()">Book With This Estimate</button></div></div></div></section>
+
+<section class="section"><div class="container split"><div><span class="eyebrow">HOME MOVING MADE SIMPLE</span><h2>From Packing Box to <span>New Home</span></h2><p>Our team handles the heavy lifting, protection, transportation and setup so you can focus on settling in.</p><ul class="ticks"><li>Pre-move planning and site guidance</li><li>Protective floor and furniture covering</li><li>Room-by-room placement</li><li>Professional dismantling and assembly</li></ul><button class="btn" onclick="scrollToQuote('Apartment Move')">Book a Home Move</button></div><div class="feature-photo"><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1200&q=80" alt="Home moving"></div></div></section>
+
+<section class="section dark" id="services"><div class="container"><div class="section-head"><span class="eyebrow">WHAT WE DO</span><h2>Our <span>Moving Services</span></h2></div><div class="cards three" id="serviceCards"></div></div></section>
+
+<section class="section"><div class="container"><div class="section-head"><span class="eyebrow">HOW IT WORKS</span><h2>A Simple <span>Moving Process</span></h2></div><div class="steps"><div><b>01</b><h3>Tell Us Your Move</h3><p>Share locations, property details and preferred date.</p></div><div><b>02</b><h3>Get Your Quote</h3><p>We review your requirements and confirm pricing.</p></div><div><b>03</b><h3>We Move You</h3><p>Our team packs, loads, transports and unloads safely.</p></div><div><b>04</b><h3>Settle In</h3><p>Furniture assembly and placement can be arranged.</p></div></div></div></section>
+
+<section class="section dark"><div class="container"><div class="section-head"><span class="eyebrow">THE AB+ QUALITY STANDARD</span><h2>Why Choose <span>AB+ Movers?</span></h2><p>Dependable moving support across Dubai and the UAE.</p></div><div class="cards four" id="whyCards"></div></div></section>
+
+<section class="section" id="about"><div class="container split"><div><span class="eyebrow">ABOUT AB+ MOVERS</span><h2>Moving Your World, <span>Safely</span></h2><p>AB+ Movers and Packers provides residential, commercial and specialized relocation services across the United Arab Emirates.</p><p>We combine trained manpower, protective packing, enclosed transportation and coordinated scheduling for a smoother move.</p><div class="stats"><div><strong>24/7</strong><small>Operations</small></div><div><strong>5%</strong><small>UAE VAT</small></div><div><strong>UAE</strong><small>Wide Service</small></div></div></div><div class="dark-box"><h3>Professional Relocation Support</h3><p>Dubai • Sharjah • Ajman • Abu Dhabi • Umm Al Quwain • Ras Al Khaimah • Fujairah • Al Ain</p><a class="text-btn" href="https://wa.me/971543017540" target="_blank">Chat on WhatsApp →</a></div></div></section>
+
+<section class="section dark"><div class="container"><div class="section-head"><span class="eyebrow">CUSTOMER EXPERIENCES</span><h2>Client <span>Feedback</span></h2></div><div class="cards three"><article class="quote-card"><div>★★★★★</div><p>“Professional team and careful handling throughout the move.”</p><b>Rashid Al Nuaimi</b><small>Villa Move • Dubai</small></article><article class="quote-card"><div>★★★★★</div><p>“The booking process was straightforward and the crew arrived on schedule.”</p><b>Elena Rostova</b><small>Apartment Move • Dubai</small></article><article class="quote-card"><div>★★★★★</div><p>“Good communication and organized furniture handling.”</p><b>Client Feedback</b><small>Residential Move • UAE</small></article></div></div></section>
+
+<section class="section" id="faq"><div class="container narrow"><div class="section-head"><span class="eyebrow">FAQ</span><h2>Frequently Asked <span>Questions</span></h2></div><div class="faq"><details><summary>Do you provide packing materials?</summary><p>Yes. Packing can include cartons, bubble wrap, shrink wrap and protective materials depending on your selected service.</p></details><details><summary>Do you handle office relocations?</summary><p>Yes. We can coordinate office furniture, workstation dismantling and organized relocation.</p></details><details><summary>Can I request a specific moving date?</summary><p>Yes. Submit your preferred date and time in the quote form and our team can confirm availability.</p></details><details><summary>Is the calculator quote final?</summary><p>No. The calculator provides an indicative estimate. Your final price depends on access, inventory, route and requested services.</p></details><details><summary>How can I contact AB+ Movers?</summary><p>Call +971 54 301 7540 or contact us on WhatsApp.</p></details></div></div></section>
+
+<section class="section dark" id="contact"><div class="container contact-grid"><div><span class="eyebrow">CONTACT & LOCATION</span><h2>Let's Plan Your <span>Move</span></h2><p>AB+ Movers and Packers Warehouse / Business Location<br>Dubai, United Arab Emirates</p><div class="contact-links"><a href="tel:+971543017540">📞 +971 54 301 7540</a><a href="mailto:info@abmovers.ae">✉ info@abmovers.ae</a><a href="https://wa.me/971543017540" target="_blank">💬 WhatsApp Muhammad Bilal</a></div><button class="btn" onclick="scrollToQuote()">Get Free Quote</button></div><iframe class="map" loading="lazy" src="https://www.google.com/maps?q=25.23212972,55.55543134&z=14&output=embed" title="AB+ Movers location"></iframe></div></section>
+</main>
+
+<footer><div class="container footer"><div><a class="brand" href="#home"><img src="assets/logo.svg" alt=""><span>AB+ <b>MOVERS</b></span></a><p>Professional Movers & Packers in Dubai & UAE.</p></div><div><b>Quick Links</b><a href="#services">Services</a><a href="#plans">Pricing</a><a href="#calculator">Calculator</a><a href="#faq">FAQ</a></div><div><b>Contact</b><a href="tel:+971543017540">+971 54 301 7540</a><a href="mailto:info@abmovers.ae">info@abmovers.ae</a><a href="https://wa.me/971543017540" target="_blank">WhatsApp</a></div></div><div class="copyright">© 2026 AB+ Movers and Packers. All rights reserved.</div></footer>
+<div class="floating"><a href="https://wa.me/971543017540" target="_blank">WhatsApp</a><a href="tel:+971543017540">Call</a></div>
+
+<div class="modal" id="modal"><div class="modal-box"><button class="close" onclick="closeModal()">×</button><div id="modalContent"></div></div></div>
+<script src="script.js"></script>
+</body></html>
